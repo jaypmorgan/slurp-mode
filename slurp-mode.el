@@ -1,3 +1,16 @@
+;;; slurp-mode.el --- Support for the SluRp syntax  -*- lexical-binding: t; -*-
+
+;; Copyright (C) 2010-2021 Jay Morgan
+
+
+;; Author: Jay Morgan <jay@morganwastaken.com>
+;; Created: 23 May 2021
+
+;; Keywords: lisp R
+;; URL: https://github.com/jaypmorgan/slurp-mode
+
+;;; Code:
+
 (defconst slurp-mode-syntax-table
   (let ((table (make-syntax-table)))
     ;; string deliminter
