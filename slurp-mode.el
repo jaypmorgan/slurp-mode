@@ -39,7 +39,7 @@
   (set-syntax-table slurp-mode-syntax-table)
   (set (make-local-variable 'font-lock-defaults) '(slurp-mode-font-lock-keywords))
   (set (make-local-variable 'prettify-symbols-alist) slurp-mode-pretty-symbols-alist)
-  (set (make-local-variable 'lisp-body-indent) 1)
+  (set (make-local-variable 'lisp-body-indent) 2)
   (set (make-local-variable 'indent-line-function) 'lisp-indent-line)
   (set (make-local-variable 'mode-name) "SluRp"))
 
