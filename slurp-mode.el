@@ -27,9 +27,8 @@
 (defconst slurp-mode-font-lock-keywords
   ;; (regexp-opt '("defparam" "defun" "library" "lambda") t)
   (list '("\\<\\(def\\(?:param\\|un\\)\\|library\\|lambda\\)\\>" . font-lock-builtin-face)
-        '("\\(\:\\w+\\)" . font-lock-keyword-face)
-        '("\\([0-9.]+\\)" . font-lock-constant-face)
-        '("\\<\\(defun \\w+ \\)\\>" . font-lock-constant-face))
+        '("\\(\:[a-z0-9_]+\\)" . font-lock-keyword-face)
+        '("\\([0-9L.]+\\)" . font-lock-constant-face))
   "Default highlighting for SluRp mode")
 
 (defun slurp-mode ()
