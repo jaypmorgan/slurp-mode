@@ -41,6 +41,7 @@
   (set (make-local-variable 'prettify-symbols-alist) slurp-mode-pretty-symbols-alist)
   (set (make-local-variable 'lisp-body-indent) 2)
   (set (make-local-variable 'indent-line-function) 'lisp-indent-line)
+  (set (make-local-variable 'comment-start) ";;")
   (set (make-local-variable 'mode-name) "SluRp"))
 
 (add-to-list 'auto-mode-alist '("\\.slurp\\'" . slurp-mode))
