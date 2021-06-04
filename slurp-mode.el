@@ -21,6 +21,10 @@
     (modify-syntax-entry ?\n ">" table)
     table))
 
+(defvar slurp-mode-map
+  (let ((map (nconc (make-sparse-keymap) lisp-mode-map)))
+    map))
+
 (defconst slurp-mode-pretty-symbols-alist
   '(("lambda" . ?λ)))
 
