@@ -28,15 +28,27 @@
   "Get the text of highlighted region as string"
   (buffer-substring-no-properties (region-beginning) (region-end)))
 
+(defun slurp-repl--get-line-contents ()
+  "Get the text of the line where the cursor is"
+  (buffer-substring-no-properties (line-beginning-position) (line-end-position)))
+
+(defun slurp-repl--send-something (fun)
+  (comint-send-string "*SluRp*" (funcall fun)))
+
 (defun slurp-repl-send-buffer ()
   "Send entire buffer to the repl"
   (interactive)
-  (comint-send-string "*SluRp*" (slurp-repl--get-buffer-contents)))
+  (slurp-repl--send-something #'slurp-repl--get-buffer-contents))
 
 (defun slurp-repl-send-region ()
   "Send highlighted region to repl"
   (interactive)
-  (comint-send-string "*SluRp*" (slurp-repl--get-region-contents)))
+  (slurp-repl--send-something #'slurp-repl--get-region-contents))
+
+(defun slurp-repl-send-line ()
+  "Send the current cursor line to repl"
+  (interactive)
+  (slurp-repl--send-something #'slurp-repl--get-line-contents))
 
 (defun run-slurp ()
   "Run an inferior instance of the slurp repl inside Emacs."
@@ -57,7 +69,7 @@
   "Split the window below and run a slurp repl"
   (interactive)
   (split-window-below)
-  (other-window)
+  (other-window 1)
   (run-slurp))
 
 (defun slurp-repl-mode--initialise ()
