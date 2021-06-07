@@ -26,12 +26,13 @@
     map))
 
 (defconst slurp-mode-pretty-symbols-alist
-  :key
-  '(("lambda" . ?λ)))
+  '(("lambda" . ?λ)
+    ("<="     . ?≤)
+    (">="     . ?≥)))
 
 (defconst slurp-mode-font-lock-keywords
   (list '("\\<\\(if\\|l\\(?:ambda\\|ibrary\\)\\|progn\\|unless\\|while\\)\\>" . font-lock-builtin-face)
-        '("\\( \:[a-z0-9_]+\\)" . font-lock-function-name-face)
+        '("\\( \:[a-z0-9._]+\\)" . font-lock-function-name-face)
         '("\\(defun\\|defparam\\)" . font-lock-keyword-face)
         '("\\( [0-9.]+L?\\|TRUE\\|FALSE\\)" . font-lock-constant-face))
   "Default highlighting for SluRp mode")
