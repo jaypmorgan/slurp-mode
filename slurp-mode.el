@@ -23,12 +23,11 @@
 
 (defvar slurp-mode-map
   (let ((map (nconc (make-sparse-keymap) lisp-mode-map)))
-    map))
+    map)
+  "Keymap for SluRp")
 
 (defconst slurp-mode-pretty-symbols-alist
-  '(("lambda" . ?λ)
-    ("<="     . ?≤)
-    (">="     . ?≥)))
+  '(("lambda" . ?λ)))
 
 (defconst slurp-mode-font-lock-keywords
   (list '("\\<\\(if\\|l\\(?:ambda\\|ibrary\\)\\|progn\\|unless\\|while\\)\\>" . font-lock-builtin-face)
@@ -38,9 +37,11 @@
   "Default highlighting for SluRp mode")
 
 (defun slurp-mode ()
-  "Major mode for SluRp"
+  "Major mode for SluRp
+\\{slurp-mode-map}"
   (interactive)
   (kill-all-local-variables)
+  (use-local-map slurp-mode-map)
   (set-syntax-table slurp-mode-syntax-table)
   (set (make-local-variable 'font-lock-defaults) '(slurp-mode-font-lock-keywords))
   (set (make-local-variable 'prettify-symbols-alist) slurp-mode-pretty-symbols-alist)
